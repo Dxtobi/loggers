@@ -1,10 +1,7 @@
-import '../globals.css'
-import Auth from '../app/components/auth/Auth'
-import {  getSession } from "next-auth/react"
-import TopHeader from '../app/components/sections/topHead'
+import '../app/globals.css'
+
 import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useEffect } from 'react'
-import LoanForm from '../app/components/forms/forms'
-import axios, { AxiosRequestConfig } from 'axios'
+
 import User from 'model/User'
 import dbConnect from '@/lib/dbConnect'
 import { serialize } from 'v8'
