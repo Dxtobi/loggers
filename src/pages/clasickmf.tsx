@@ -1,4 +1,4 @@
-import '../app/globals.css'
+//import '../app/globals.css'
 
 import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useEffect } from 'react'
 
