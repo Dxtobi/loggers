@@ -1,18 +1,28 @@
-import './globals.css'
+'use client'
+import '../globals.css'
+import { SessionProvider } from "next-auth/react"
+import AppBar from './components/header/AppBar';
 
 export default function RootLayout({
   children,
+  session
 }: {
-  children: React.ReactNode
+    children: React.ReactNode,
+    session: any
 }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
-      <body>{children}</body>
+      <body>
+        <SessionProvider session={session}>
+          <>
+            <AppBar />
+            <main className=' mt-[90px]'>{children}</main>
+          </>
+        </SessionProvider>
+      
+      </body>
     </html>
+           
+    
   )
 }
