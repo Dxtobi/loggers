@@ -20,7 +20,7 @@ export default function Home() {
       setLoading(!loading)
     }, 1000)
   },[])
-  //console.log(session)
+  console.log(session)
   
   return (
     <div className='w-[80%] m-auto'>

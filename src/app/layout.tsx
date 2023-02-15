@@ -1,21 +1,28 @@
 'use client'
 import './globals.css'
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider, useSession } from "next-auth/react"
 import AppBar from './components/header/AppBar';
-import { Session } from 'next-auth';
+import { Session } from 'types';
+//import type { Session } from 'next-auth';
+
+
 
 
 export default function RootLayout({
   children,
-  session
+  //session
 }: {
     children: React.ReactNode,
-    session: any
-}) {
+   // session: Session
+  }) {
+  
+  //const mi = useSession()
+
+  //console.log(session, '---------', mi)
   return (
     <html lang="en">
       <body>
-        <SessionProvider session={session}>
+        <SessionProvider>
           <>
             <AppBar />
             <main className=' mt-[90px]'>{children}</main>

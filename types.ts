@@ -1,10 +1,7 @@
-import "next-auth";
-import { ISODateString } from "next-auth";
+import { ISODateString } from "next-auth/core/types";
 
 
-
-declare global {
-    interface User {
+export interface User {
         accNo: string,
         bvn: string,
         cpin: string,
@@ -17,12 +14,9 @@ declare global {
         username: string,
         __v?: number,
         _id: string
-    }
-
-    module "next-auth" {
-        interface Session {
-            user?: User;
-            expires:ISODateString
-        }
-    }
+}
+    
+export interface Session {
+    user?: User;
+    expires:ISODateString
 }
